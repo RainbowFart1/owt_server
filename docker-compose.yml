@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  owt:
+    image: rainbow12/owt-cert
+    restart: always
+    container_name: owt_server
+    # 证书挂载
+    volumes:
+      - ./run_server.sh:/owt-server/bin/run_server.sh
+      - ./SSL/certificate.pfx:/owt-server/webrtc_agent/cert/certificate.pfx
+      - ./SSL/certificate.pfx:/owt-server/portal/cert/certificate.pfx
+      - ./SSL/certificate.pfx:/owt-server/management_console/cert/certificate.pfx
+      - ./SSL/certificate.pfx:/owt-server/management_api/cert/certificate.pfx
+      - ./SSL/certificate.pfx:/owt-server/extras/basic_example/cert/certificate.pfx
+    environment:
+      - HOST_IP=10.0.0.103
+      - HOST_NET=eth0
+      - CERT_KEY=dmsxw0vn
+      - Domain_Names=office.owt.aiyijan.com
+    ports:
+      - "8080:8080"
+      - "3004:3004"
+    command:
+      - /bin/bash 
+      - -c 
+      - "/owt-server/bin/run_server.sh" 
