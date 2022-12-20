@@ -3,8 +3,6 @@ echo $HOST_NET
 echo $Domain_Names
 echo $CERT_KEY
 
-# node /owt-server/management_api/initcert.js
-# $CERT_KEY
 
 
 sed -i "/^network_interfaces =/c \network_interfaces = [{name = \"$HOST_NET\", replaced_ip_address = \"$HOST_IP\"}]" /owt-server/webrtc_agent/agent.toml
