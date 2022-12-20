@@ -14,10 +14,10 @@ services:
       - ./SSL/certificate.pfx:/owt-server/management_api/cert/certificate.pfx
       - ./SSL/certificate.pfx:/owt-server/extras/basic_example/cert/certificate.pfx
     environment:
-      - HOST_IP=10.0.0.103
+      - HOST_IP=10.200.116.77
       - HOST_NET=eth0
       - CERT_KEY=dmsxw0vn
-      - Domain_Names=office.owt.aiyijan.com
+      - Domain_Names=tcm.aiyijan.com
     ports:
       - "8080:8080"
       - "3004:3004"
